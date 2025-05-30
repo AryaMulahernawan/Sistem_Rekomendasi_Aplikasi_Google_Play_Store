@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Kemajuan teknologi serta meningkatnya penggunaan smartphone secara global telah memicu lonjakan besar dalam jumlah aplikasi mobile, khususnya di platform Android melalui Google Play Store. Berdasarkan laporan dari Statista (2024), lebih dari 3 juta aplikasi tersedia di platform tersebut pada awal tahun 2024 [9Statista 20240](https://www.statista.com/statistics/276623/number-of-apps-available-in-leading-app-stores/). Namun, banyaknya pilihan ini justru bisa menjadi hambatan bagi pengguna yang ingin menemukan aplikasi yang benar-benar sesuai dengan kebutuhan dan preferensi mereka.
+Kemajuan teknologi serta meningkatnya penggunaan smartphone secara global telah memicu lonjakan besar dalam jumlah aplikasi mobile, khususnya di platform Android melalui Google Play Store. Berdasarkan laporan dari Statista (2024), lebih dari 3 juta aplikasi tersedia di platform tersebut pada awal tahun 2024 [(Statista 2024)](https://www.statista.com/statistics/276623/number-of-apps-available-in-leading-app-stores/). Namun, banyaknya pilihan ini justru bisa menjadi hambatan bagi pengguna yang ingin menemukan aplikasi yang benar-benar sesuai dengan kebutuhan dan preferensi mereka.
 
 Untuk menjawab tantangan tersebut, proyek ini dirancang untuk mengembangkan sebuah sistem rekomendasi aplikasi di Google Play Store. Tujuan utamanya adalah membantu pengguna menemukan aplikasi yang relevan dan berkualitas dengan lebih mudah. Sistem ini akan memanfaatkan data historis aplikasi seperti kategori, rating, jumlah unduhan, ukuran, harga, dan fitur lainnya. Melalui pendekatan tersebut, rekomendasi yang dihasilkan diharapkan lebih akurat dan sesuai dengan karakteristik pengguna.
 

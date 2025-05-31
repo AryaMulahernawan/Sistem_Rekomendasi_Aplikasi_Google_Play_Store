@@ -200,7 +200,7 @@ b. Kekurangan:
 - 
 **Top-N Recommendation Output**
 Berikut adalah contoh hasil rekomendasi untuk beberapa aplikasi:
-![Image](https://github.com/user-attachments/assets/4051d424-ad3e-48da-b72d-16d69360f044)
+![Image](https://github.com/user-attachments/assets/78d826c6-6a7f-41e8-864b-9d1337b788b5)
 
 Sistem merekomendasikan beberapa aplikasi lain yang berada dalam kategori Shopping dan memiliki kemiripan fitur dengan Supermarket Deal Calculator. Beberapa aplikasi yang direkomendasikan antara lain Shopping List Barcode Scanner, FidMe Loyalty Cards & Deals at Grocery Supermarkets, hingga Toy Store App. Rekomendasi ini relevan karena memiliki fungsi serupa dalam membantu aktivitas berbelanja dan pengelolaan produk.
 
@@ -210,7 +210,7 @@ Untuk aplikasi bertema hiburan seperti Happy birth, sistem menghasilkan rekomend
 Rekomendasi untuk aplikasi Fire Truck Simulator 3D:
 Aplikasi ini termasuk dalam kategori Simulation, sehingga sistem memberikan rekomendasi aplikasi simulasi lainnya seperti Car Driving, Armed Air Forces, dan Real Sports Car Game. Aplikasi-aplikasi ini menawarkan pengalaman interaktif dan simulasi kendaraan atau aktivitas serupa yang sesuai dengan konsep dari Fire Truck Simulator 3D.
 
-![Image](https://github.com/user-attachments/assets/78d826c6-6a7f-41e8-864b-9d1337b788b5)
+![Image](https://github.com/user-attachments/assets/4051d424-ad3e-48da-b72d-16d69360f044)
 
 Hasil yang ditampilkan menunjukkan 10 aplikasi yang dianggap paling populer, seperti:
 - Contacts dari Google, dengan lebih dari 500 juta pemasangan.
@@ -219,9 +219,10 @@ Hasil yang ditampilkan menunjukkan 10 aplikasi yang dianggap paling populer, sep
 Aplikasi-aplikasi ini berasal dari berbagai kategori, menunjukkan bahwa popularitas tidak hanya bergantung pada satu jenis aplikasi, tetapi juga kualitas.
 
 ## Evaluation
+1. ### Evaluasi Pendekatan Content-Based Filtering
 Evaluasi sistem rekomendasi dilakukan untuk mengukur sejauh mana hasil rekomendasi yang dihasilkan oleh model dapat dianggap relevan, bervariasi, dan tidak terlalu seragam. Dalam proyek ini, digunakan tiga metrik evaluasi utama yang umum digunakan dalam sistem rekomendasi:
 
-### 1. Precision@K
+#### 1. Precision@K
 **Definisi:**
 Precision@K mengukur proporsi item yang relevan dari total item yang direkomendasikan sebanyak K.
 **Formula:**
@@ -230,7 +231,6 @@ Precision@K mengukur proporsi item yang relevan dari total item yang direkomenda
 Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
 
 **Hasil:**
-![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
 Untuk beberapa aplikasi seperti:
 - Supermarket Deal Calculator: Precision@10 =  1.00
 - Happy birth: Precision@10 =  1.00
@@ -241,7 +241,7 @@ Sistem berhasil merekomendasikan aplikasi yang sangat relevan (semua rekomendasi
 
 
 
-### 2. Diversity Score
+#### 2. Diversity Score
 **Definisi:**
 Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomendasikan. Semakin banyak kategori berbeda dalam daftar rekomendasi, semakin tinggi nilai diversitas.
 
@@ -255,7 +255,7 @@ Happy birth → Diversity Score: 0.10
 Kesimpulan:
 Skor diversity tergolong rendah, yang artinya sistem cenderung merekomendasikan aplikasi dari kategori yang serupa. Hal ini bisa disebabkan oleh pendekatan content-based filtering yang mengutamakan kemiripan fitur.
 
-### 3. Intra-list Similarity (ILS)
+#### 3. Intra-list Similarity (ILS)
 **Definisi:**
 ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama lain. Semakin rendah ILS, maka semakin beragam dan tidak terlalu seragam item rekomendasinya.
 **Formula:**
@@ -271,16 +271,25 @@ Happy birth → ILS: 1.00
 Kesimpulan:
 Nilai ILS yang tinggi menunjukkan bahwa aplikasi yang direkomendasikan sangat mirip satu sama lain. Ini bisa jadi menguntungkan dalam konteks pencarian aplikasi sejenis, namun bisa juga menjadi kelemahan jika pengguna menginginkan variasi yang lebih luas.
 
+2. ###Evaluasi Popularity-Based Recommendation
+![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
+
+Pendekatan ini memberikan rekomendasi berdasarkan aplikasi yang memiliki jumlah pemasangan tertinggi, jumlah rating terbanyak, dan rating rata-rata tertinggi.
+
+Statistik deskriptif untuk 10 aplikasi terpopuler menunjukkan bahwa:
+- Rata-rata jumlah rating adalah 427 untuk setiap aplikasi, tanpa variasi.
+- Nilai rating bervariasi dari 4.3 hingga 4.9, dengan rata-rata 4.77, dan standar deviasi 0.17, menandakan semua aplikasi sangat populer dan disukai.
+Analisis korelasi antar metrik menunjukkan bahwa terdapat korelasi negatif yang kuat antara jumlah pemasangan dan rating (nilai korelasi sekitar -0.97). Artinya, aplikasi yang paling banyak diunduh tidak selalu mendapatkan rating tertinggi. Data ini memberikan wawasan bahwa popularitas berdasarkan jumlah pemasangan tidak selalu mencerminkan kualitas aplikasi berdasarkan penilaian pengguna.
+
+Pendekatan ini tidak personal karena memberikan rekomendasi umum kepada semua pengguna, namun keunggulannya adalah cepat, sederhana, dan efektif dalam menampilkan aplikasi yang dikenal banyak orang.
+
+
 **Kesimpulan Evaluasi**
-Secara keseluruhan, sistem rekomendasi memberikan performa yang sangat baik dalam hal relevansi (Precision tinggi), namun masih terbatas dalam hal keragaman (Diversity Score dan ILS kurang ideal).
+Pendekatan content-based filtering menghasilkan rekomendasi yang sangat relevan dan sesuai kategori, dengan precision sempurna, tetapi rekomendasi cenderung kurang beragam karena semua aplikasi sangat mirip. Pendekatan ini sangat cocok untuk pengguna yang mencari aplikasi serupa berdasarkan minat atau kategori tertentu.
 
-- Kelebihan:
-Rekomendasi sangat relevan sesuai kategori aplikasi input.
-Precision@10 mencapai nilai sempurna pada semua pengujian.
+Sementara itu, pendekatan popularity-based recommendation memberikan daftar aplikasi yang secara umum paling populer dan memiliki rating tinggi. Meskipun kurang personal, pendekatan ini efektif digunakan untuk pengguna baru yang belum memiliki preferensi.
 
-- Kekurangan:
-Rekomendasi masih terlalu homogen (seragam).
-Kurangnya variasi dalam kategori aplikasi.
+Jika dimungkinkan di masa mendatang, sistem hybrid yang menggabungkan kedua pendekatan dapat digunakan untuk menghasilkan rekomendasi yang lebih kuat, baik dari segi relevansi maupun keberagaman.
 
 
 

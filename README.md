@@ -26,9 +26,9 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi aplikasi berbasis data y
 2. Bagaimana cara mengukur performa model sistem rekomendasi aplikasi secara kuantitatif?
 
 ### Goals
-Menghasilkan rekomendasi aplikasi sebanyak Top-N rekomendasi yang relevan untuk pengguna berdasarkan kemiripan fitur aplikasi.
+1. Menghasilkan rekomendasi aplikasi sebanyak Top-N rekomendasi yang relevan untuk pengguna berdasarkan kemiripan fitur aplikasi.
 
-Mengukur performa model sistem rekomendasi menggunakan metrik evaluasi seperti cosine similarity, precision@k, atau diversity score untuk menilai relevansi dan keberagaman rekomendasi.
+2. Mengukur performa model sistem rekomendasi menggunakan metrik evaluasi seperti precision@k, diversity score dan Intra-list Similarity (ILS) untuk menilai relevansi dan keberagaman rekomendasi.
 
 
  ### Solution statements

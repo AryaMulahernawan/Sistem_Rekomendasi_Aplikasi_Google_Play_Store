@@ -231,6 +231,8 @@ Precision@K mengukur proporsi item yang relevan dari total item yang direkomenda
 Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
 
 **Hasil:**
+![Image](https://github.com/user-attachments/assets/720af300-3f7d-4326-ac10-44ced8b6bc1b)
+
 Untuk beberapa aplikasi seperti:
 - Supermarket Deal Calculator: Precision@10 =  1.00
 - Happy birth: Precision@10 =  1.00
@@ -248,6 +250,7 @@ Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomend
 **Formula:**
 ![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
 **Hasil:**
+![Image](https://github.com/user-attachments/assets/42e80aa9-b2c4-4a75-a0de-f42da840d7d0)
 Supermarket Deal Calculator → Diversity Score: 0.10
 Happy birth → Diversity Score: 0.10
 40 Hadist Peristiwa Akhir Zaman → Diversity Score: 0.20
@@ -263,7 +266,7 @@ ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama
 Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
 
 **Hasil:**
-
+![Image](https://github.com/user-attachments/assets/e0e5ec79-db4e-4908-909d-0a758be93b37)
 Supermarket Deal Calculator → ILS: 1.00
 Happy birth → ILS: 1.00
 40 Hadist Peristiwa Akhir Zaman → ILS: 1.00

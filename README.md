@@ -241,10 +241,15 @@ Ini menunjukkan bahwa sistem mampu memberikan variasi kategori dalam rekomendasi
 **Definisi:**
 ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama lain. Semakin rendah ILS, maka semakin beragam dan tidak terlalu seragam item rekomendasinya.
 **Formula:**
-
+![Image](https://github.com/user-attachments/assets/3f821a9b-69bd-459e-9494-b27e886af4bc)
+![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
+![Image](https://github.com/user-attachments/assets/2a2ad68d-20c5-4378-acce-bad03219cbf4)
 Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
 
 **Hasil:**
+![Image](https://github.com/user-attachments/assets/a8e5f961-5e37-4078-af5c-d5c174854d95)
+![Image](https://github.com/user-attachments/assets/6fe5e789-ed14-4981-b3cb-b27a2248ec5f)
+![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
 Nilai ILS berkisar 0.55 - 0.70, yang berarti masih terdapat kemiripan antar aplikasi dalam rekomendasi, namun tidak terlalu identik.
 
 Kesimpulan Evaluasi

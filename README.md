@@ -231,6 +231,7 @@ Precision@K mengukur proporsi item yang relevan dari total item yang direkomenda
 Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
 
 **Hasil:**
+
 ![Image](https://github.com/user-attachments/assets/720af300-3f7d-4326-ac10-44ced8b6bc1b)
 
 Untuk beberapa aplikasi seperti:
@@ -247,10 +248,12 @@ Sistem berhasil merekomendasikan aplikasi yang sangat relevan (semua rekomendasi
 **Definisi:**
 Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomendasikan. Semakin banyak kategori berbeda dalam daftar rekomendasi, semakin tinggi nilai diversitas.
 
-**Formula:**
 ![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
+
 **Hasil:**
-![Image](https://github.com/user-attachments/assets/42e80aa9-b2c4-4a75-a0de-f42da840d7d0)
+
+![Image](https://github.com/user-attachments/assets/e0e5ec79-db4e-4908-909d-0a758be93b37)
+
 Supermarket Deal Calculator → Diversity Score: 0.10
 Happy birth → Diversity Score: 0.10
 40 Hadist Peristiwa Akhir Zaman → Diversity Score: 0.20
@@ -261,12 +264,13 @@ Skor diversity tergolong rendah, yang artinya sistem cenderung merekomendasikan 
 #### 3. Intra-list Similarity (ILS)
 **Definisi:**
 ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama lain. Semakin rendah ILS, maka semakin beragam dan tidak terlalu seragam item rekomendasinya.
-**Formula:**
+
 ![Image](https://github.com/user-attachments/assets/2a2ad68d-20c5-4378-acce-bad03219cbf4)
-Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
 
 **Hasil:**
-![Image](https://github.com/user-attachments/assets/e0e5ec79-db4e-4908-909d-0a758be93b37)
+
+![Image](https://github.com/user-attachments/assets/42e80aa9-b2c4-4a75-a0de-f42da840d7d0)
+
 Supermarket Deal Calculator → ILS: 1.00
 Happy birth → ILS: 1.00
 40 Hadist Peristiwa Akhir Zaman → ILS: 1.00
@@ -295,6 +299,4 @@ Sementara itu, pendekatan popularity-based recommendation memberikan daftar apli
 Jika dimungkinkan di masa mendatang, sistem hybrid yang menggabungkan kedua pendekatan dapat digunakan untuk menghasilkan rekomendasi yang lebih kuat, baik dari segi relevansi maupun keberagaman.
 
 
-
-**---Ini adalah bagian akhir laporan---**
 

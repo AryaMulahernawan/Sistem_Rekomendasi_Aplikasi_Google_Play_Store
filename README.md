@@ -210,8 +210,7 @@ Evaluasi sistem rekomendasi dilakukan untuk mengukur sejauh mana hasil rekomenda
 **Definisi:**
 Precision@K mengukur proporsi item yang relevan dari total item yang direkomendasikan sebanyak K.
 **Formula:**
-
-
+![Image](https://github.com/user-attachments/assets/3f821a9b-69bd-459e-9494-b27e886af4bc)
 **Implementasi:**
 Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
 
@@ -230,25 +229,20 @@ Rata-rata precision menunjukkan bahwa sistem dapat memberikan rekomendasi yang c
 Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomendasikan. Semakin banyak kategori berbeda dalam daftar rekomendasi, semakin tinggi nilai diversitas.
 
 **Formula:**
-
+![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
 **Hasil:**
 Skor diversitas berkisar antara 0.6 hingga 0.8.
 
 Ini menunjukkan bahwa sistem mampu memberikan variasi kategori dalam rekomendasinya, tidak hanya fokus pada satu kategori saja.
 
-
 ### 3. Intra-list Similarity (ILS)
 **Definisi:**
 ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama lain. Semakin rendah ILS, maka semakin beragam dan tidak terlalu seragam item rekomendasinya.
 **Formula:**
-![Image](https://github.com/user-attachments/assets/3f821a9b-69bd-459e-9494-b27e886af4bc)
-![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
 ![Image](https://github.com/user-attachments/assets/2a2ad68d-20c5-4378-acce-bad03219cbf4)
 Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
 
 **Hasil:**
-![Image](https://github.com/user-attachments/assets/a8e5f961-5e37-4078-af5c-d5c174854d95)
-![Image](https://github.com/user-attachments/assets/6fe5e789-ed14-4981-b3cb-b27a2248ec5f)
 ![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
 Nilai ILS berkisar 0.55 - 0.70, yang berarti masih terdapat kemiripan antar aplikasi dalam rekomendasi, namun tidak terlalu identik.
 

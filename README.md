@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Arya Mulahernawan
 
 ## Project Overview
 
@@ -48,6 +48,23 @@ Menampilkan aplikasi dengan jumlah instalasi, rating count, atau rating tertingg
 
 ## Data Understanding
 Pada tahap ini, dilakukan pemahaman awal terhadap dataset yang digunakan dalam proyek sistem rekomendasi aplikasi. Informasi yang disampaikan mencakup jumlah data, kondisi data, serta penjelasan setiap fitur dalam dataset.
+erdapat kolom-kolom yang memiliki missing values, antara lain:
+
+nama kolom     jumlah data
+App Name               5
+Rating             22883
+Rating Count       22883
+Installs             107
+Size                 196
+Minimum Android     2499
+
+Data duplikat tidak ditemukan pada data
+
+Outlier terdeteksi pada kolom
+
+1. Rating
+2. Rating Count
+3. Price      
 
 Dataset yang digunakan diperoleh dari sumber berikut: [Kaggle](https://www.kaggle.com/datasets/gauthamp10/google-playstore-apps)
 
@@ -99,8 +116,8 @@ maka Dalam proses pemilihan fitur, dipilih 11 kolom utama dari dataset
 jadi Dataset nya terdiri dari 2.312.944 baris dan 11 kolom.
 
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+**exploratory data analysis**:
+- Ini beberapa tahapan yang dilakukan untuk memahami data :
 ![Image](https://github.com/user-attachments/assets/2c34c81b-27bd-4021-b344-5ae14dd39fc9)
 - **Histogram**
 - Rating: Terlihat mayoritas nilai Rating berkisar di antara 4 dan 5, artinya sebagian besar aplikasi mendapatkan penilaian bagus.
@@ -278,7 +295,7 @@ Happy birth → ILS: 1.00
 Kesimpulan:
 Nilai ILS yang tinggi menunjukkan bahwa aplikasi yang direkomendasikan sangat mirip satu sama lain. Ini bisa jadi menguntungkan dalam konteks pencarian aplikasi sejenis, namun bisa juga menjadi kelemahan jika pengguna menginginkan variasi yang lebih luas.
 
-2. ###Evaluasi Popularity-Based Recommendation
+2. ### Evaluasi Popularity-Based Recommendation
 ![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
 
 Pendekatan ini memberikan rekomendasi berdasarkan aplikasi yang memiliki jumlah pemasangan tertinggi, jumlah rating terbanyak, dan rating rata-rata tertinggi.

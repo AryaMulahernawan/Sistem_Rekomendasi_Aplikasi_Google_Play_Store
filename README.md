@@ -185,16 +185,79 @@ b. Kekurangan:
 - Rentan bias terhadap aplikasi lama dan terkenal.
 **Top-N Recommendation Output**
 Berikut adalah contoh hasil rekomendasi untuk beberapa aplikasi:
+![Image](https://github.com/user-attachments/assets/4051d424-ad3e-48da-b72d-16d69360f044)
 
+Sistem merekomendasikan beberapa aplikasi lain yang berada dalam kategori Shopping dan memiliki kemiripan fitur dengan Supermarket Deal Calculator. Beberapa aplikasi yang direkomendasikan antara lain Shopping List Barcode Scanner, FidMe Loyalty Cards & Deals at Grocery Supermarkets, hingga Toy Store App. Rekomendasi ini relevan karena memiliki fungsi serupa dalam membantu aktivitas berbelanja dan pengelolaan produk.
 
+Rekomendasi untuk aplikasi Happy birth:
+Untuk aplikasi bertema hiburan seperti Happy birth, sistem menghasilkan rekomendasi dari kategori Entertainment seperti LAVA TV, Pelet Online Prank, dan Among us mod MCPE 2021. Aplikasi-aplikasi ini memiliki konten hiburan yang bervariasi, dari video lucu hingga mod game, yang dinilai sesuai dengan selera pengguna aplikasi Happy birth.
+
+Rekomendasi untuk aplikasi Fire Truck Simulator 3D:
+Aplikasi ini termasuk dalam kategori Simulation, sehingga sistem memberikan rekomendasi aplikasi simulasi lainnya seperti Car Driving, Armed Air Forces, dan Real Sports Car Game. Aplikasi-aplikasi ini menawarkan pengalaman interaktif dan simulasi kendaraan atau aktivitas serupa yang sesuai dengan konsep dari Fire Truck Simulator 3D.
+
+![Image](https://github.com/user-attachments/assets/78d826c6-6a7f-41e8-864b-9d1337b788b5)
+
+Hasil yang ditampilkan menunjukkan 10 aplikasi yang dianggap paling populer, seperti:
+- Contacts dari Google, dengan lebih dari 500 juta pemasangan.
+- Книга Вслух. Аудиокниги, aplikasi audiobook dengan rating tinggi (4.9).
+- Lose Belly Fat Workouts dan Taiwan Drivers License Test, yang meskipun jumlah installs lebih kecil, tetap masuk karena rating dan jumlah ratingnya tinggi.
+Aplikasi-aplikasi ini berasal dari berbagai kategori, menunjukkan bahwa popularitas tidak hanya bergantung pada satu jenis aplikasi, tetapi juga kualitas.
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Evaluasi sistem rekomendasi dilakukan untuk mengukur sejauh mana hasil rekomendasi yang dihasilkan oleh model dapat dianggap relevan, bervariasi, dan tidak terlalu seragam. Dalam proyek ini, digunakan tiga metrik evaluasi utama yang umum digunakan dalam sistem rekomendasi:
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+### 1. Precision@K
+**Definisi:**
+Precision@K mengukur proporsi item yang relevan dari total item yang direkomendasikan sebanyak K.
+**Formula:**
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+
+**Implementasi:**
+Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
+
+**Hasil:**
+Untuk beberapa aplikasi seperti:
+- Supermarket Deal Calculator: Precision@10 = 0.80
+
+- Happy birth: Precision@10 = 0.70
+
+- 40 Hadist Peristiwa Akhir Zaman: Precision@10 = 0.60
+
+Rata-rata precision menunjukkan bahwa sistem dapat memberikan rekomendasi yang cukup relevan dengan kategori aplikasi awal.
+
+### 2. Diversity Score
+**Definisi:**
+Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomendasikan. Semakin banyak kategori berbeda dalam daftar rekomendasi, semakin tinggi nilai diversitas.
+
+**Formula:**
+
+**Hasil:**
+Skor diversitas berkisar antara 0.6 hingga 0.8.
+
+Ini menunjukkan bahwa sistem mampu memberikan variasi kategori dalam rekomendasinya, tidak hanya fokus pada satu kategori saja.
+
+
+### 3. Intra-list Similarity (ILS)
+**Definisi:**
+ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama lain. Semakin rendah ILS, maka semakin beragam dan tidak terlalu seragam item rekomendasinya.
+**Formula:**
+
+Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
+
+**Hasil:**
+Nilai ILS berkisar 0.55 - 0.70, yang berarti masih terdapat kemiripan antar aplikasi dalam rekomendasi, namun tidak terlalu identik.
+
+Kesimpulan Evaluasi
+Sistem rekomendasi berbasis content-based filtering memberikan hasil yang memuaskan berdasarkan:
+
+Relevansi (Precision@10 tinggi)
+
+Keragaman (Diversity Score baik)
+
+Keseimbangan seragam vs beragam (ILS cukup rendah)
+
+Metrik-metrik tersebut dipilih karena sesuai dengan konteks problem dan tujuan sistem, yaitu memberikan rekomendasi aplikasi yang relevan namun tetap bervariasi, khususnya untuk pengguna yang tidak memiliki riwayat interaksi.
+
 
 **---Ini adalah bagian akhir laporan---**
 

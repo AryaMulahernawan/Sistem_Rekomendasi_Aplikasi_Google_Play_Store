@@ -101,11 +101,27 @@ jadi Dataset nya terdiri dari 2.312.944 baris dan 11 kolom.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
-![Image](https://github.com/user-attachments/assets/370fbd33-e2d2-44e6-afb1-cb14456db1d6)
-
+![Image](https://github.com/user-attachments/assets/2c34c81b-27bd-4021-b344-5ae14dd39fc9)
+- **Histogram**
+- Rating: Terlihat mayoritas nilai Rating berkisar di antara 4 dan 5, artinya sebagian besar aplikasi mendapatkan penilaian bagus.
+- Rating Count: Distribusinya sangat condong ke kiri (right-skewed), sebagian besar aplikasi hanya memiliki sedikit rating.
+- Price: Hampir semua aplikasi gratis (harga = 0), hanya sebagian kecil yang memiliki harga tinggi, dan ini menunjukkan adanya outlier.
 
 ![Image](https://github.com/user-attachments/assets/f362fb1c-7329-4316-af05-848f92ee6a1b)
-![Image](https://github.com/user-attachments/assets/2c34c81b-27bd-4021-b344-5ae14dd39fc9)
+- **Pairplot**
+- airplot menunjukkan hubungan antar fitur numerik secara visual.
+- Hampir semua kombinasi fitur memiliki pola menyebar luas (tidak linear), dengan beberapa titik ekstrem (outlier).
+- Rating vs Rating Count menunjukkan bahwa meski banyak aplikasi dengan rating bagus, tidak semua mendapat banyak ulasan.
+- Price vs fitur lain terlihat tidak memiliki hubungan yang kuat dan dipenuhi nilai nol.
+![Image](https://github.com/user-attachments/assets/370fbd33-e2d2-44e6-afb1-cb14456db1d6)
+- **Correlation Matrix (Heatmap)**
+- Korelasi antar fitur sangat lemah:
+a. Rating vs Rating Count: 0.01 (hampir tidak ada korelasi)
+b. Rating vs Price: -0.00 (sangat lemah negatif)
+c. Rating Count vs Price: -0.00 juga.
+- Artinya, fitur-fitur numerik ini tidak saling bergantung secara linear, dan bisa dianggap sebagai fitur independen dalam model sederhana.
+- Ini juga memberi sinyal bahwa kamu perlu teknik feature engineering atau transformasi lain jika ingin membangun model yang lebih baik.
+  
 ## Data Preparation
 1. Feature Selection
 **Proses:** Memilih 11 kolom penting dari dataset asli Google-Playstore.csv yang relevan untuk analisis dan sistem rekomendasi, antara lain App Name, App Id, Category, Rating, Rating Count, Installs, Free, Price, Size, dan Minimum Android.
@@ -160,14 +176,11 @@ Pada pendekatan pertama, digunakan teknik content-based filtering yang memanfaat
 
 a. Kelebihan:
 - Tidak bergantung pada data pengguna atau interaksi historis.
-
 - Bisa merekomendasikan item baru (cold-start friendly, selama deskripsinya tersedia).
-
 - Mudah diimplementasikan dan ditafsirkan.
 
 b. Kekurangan:
 - Rekomendasi terbatas hanya pada konten yang tersedia (hanya berdasarkan kategori).
-
 - Tidak bisa menangkap preferensi pengguna secara personal.
 
 2. Pendekatan 2: Popularity-Based Filtering
@@ -179,13 +192,12 @@ Sebagai pembanding, juga dibuat pendekatan berbasis popularitas. Pendekatan ini 
 
 a. Kelebihan:
 - Sederhana dan efektif dalam banyak kasus.
-
 - Relevan bagi pengguna baru yang belum memiliki preferensi khusus.
 
 b. Kekurangan:
 - Tidak personalisasi (semua pengguna mendapat rekomendasi yang sama).
-
 - Rentan bias terhadap aplikasi lama dan terkenal.
+- 
 **Top-N Recommendation Output**
 Berikut adalah contoh hasil rekomendasi untuk beberapa aplikasi:
 ![Image](https://github.com/user-attachments/assets/4051d424-ad3e-48da-b72d-16d69360f044)
@@ -218,14 +230,16 @@ Precision@K mengukur proporsi item yang relevan dari total item yang direkomenda
 Sebuah rekomendasi dianggap relevan jika aplikasi yang direkomendasikan memiliki kategori yang sama dengan aplikasi input.
 
 **Hasil:**
+![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
 Untuk beberapa aplikasi seperti:
-- Supermarket Deal Calculator: Precision@10 = 0.80
+- Supermarket Deal Calculator: Precision@10 =  1.00
+- Happy birth: Precision@10 =  1.00
+- 40 Hadist Peristiwa Akhir Zaman: Precision@10 = 1.00
 
-- Happy birth: Precision@10 = 0.70
+Kesimpulan:
+Sistem berhasil merekomendasikan aplikasi yang sangat relevan (semua rekomendasi sesuai kategori aplikasi awal), terbukti dari nilai precision yang mencapai 100%.
 
-- 40 Hadist Peristiwa Akhir Zaman: Precision@10 = 0.60
 
-Rata-rata precision menunjukkan bahwa sistem dapat memberikan rekomendasi yang cukup relevan dengan kategori aplikasi awal.
 
 ### 2. Diversity Score
 **Definisi:**
@@ -234,9 +248,12 @@ Diversity score mengukur seberapa beragam kategori dari aplikasi yang direkomend
 **Formula:**
 ![Image](https://github.com/user-attachments/assets/8ec0e5e9-c8f1-448e-9cd0-00e71d81c62f)
 **Hasil:**
-Skor diversitas berkisar antara 0.6 hingga 0.8.
+Supermarket Deal Calculator → Diversity Score: 0.10
+Happy birth → Diversity Score: 0.10
+40 Hadist Peristiwa Akhir Zaman → Diversity Score: 0.20
 
-Ini menunjukkan bahwa sistem mampu memberikan variasi kategori dalam rekomendasinya, tidak hanya fokus pada satu kategori saja.
+Kesimpulan:
+Skor diversity tergolong rendah, yang artinya sistem cenderung merekomendasikan aplikasi dari kategori yang serupa. Hal ini bisa disebabkan oleh pendekatan content-based filtering yang mengutamakan kemiripan fitur.
 
 ### 3. Intra-list Similarity (ILS)
 **Definisi:**
@@ -246,19 +263,25 @@ ILS mengukur seberapa mirip aplikasi-aplikasi dalam daftar rekomendasi satu sama
 Dengan sim(i, j) adalah cosine similarity antar dua aplikasi yang direkomendasikan.
 
 **Hasil:**
-![Image](https://github.com/user-attachments/assets/fbd9b68e-3c29-4e7b-a0a5-3ba546bf076d)
-Nilai ILS berkisar 0.55 - 0.70, yang berarti masih terdapat kemiripan antar aplikasi dalam rekomendasi, namun tidak terlalu identik.
 
-Kesimpulan Evaluasi
-Sistem rekomendasi berbasis content-based filtering memberikan hasil yang memuaskan berdasarkan:
+Supermarket Deal Calculator → ILS: 1.00
+Happy birth → ILS: 1.00
+40 Hadist Peristiwa Akhir Zaman → ILS: 1.00
 
-Relevansi (Precision@10 tinggi)
+Kesimpulan:
+Nilai ILS yang tinggi menunjukkan bahwa aplikasi yang direkomendasikan sangat mirip satu sama lain. Ini bisa jadi menguntungkan dalam konteks pencarian aplikasi sejenis, namun bisa juga menjadi kelemahan jika pengguna menginginkan variasi yang lebih luas.
 
-Keragaman (Diversity Score baik)
+**Kesimpulan Evaluasi**
+Secara keseluruhan, sistem rekomendasi memberikan performa yang sangat baik dalam hal relevansi (Precision tinggi), namun masih terbatas dalam hal keragaman (Diversity Score dan ILS kurang ideal).
 
-Keseimbangan seragam vs beragam (ILS cukup rendah)
+- Kelebihan:
+Rekomendasi sangat relevan sesuai kategori aplikasi input.
+Precision@10 mencapai nilai sempurna pada semua pengujian.
 
-Metrik-metrik tersebut dipilih karena sesuai dengan konteks problem dan tujuan sistem, yaitu memberikan rekomendasi aplikasi yang relevan namun tetap bervariasi, khususnya untuk pengguna yang tidak memiliki riwayat interaksi.
+- Kekurangan:
+Rekomendasi masih terlalu homogen (seragam).
+Kurangnya variasi dalam kategori aplikasi.
+
 
 
 **---Ini adalah bagian akhir laporan---**

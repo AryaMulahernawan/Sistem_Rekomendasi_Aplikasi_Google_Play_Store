@@ -101,8 +101,11 @@ jadi Dataset nya terdiri dari 2.312.944 baris dan 11 kolom.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
-![Image](https://github.com/user-attachments/assets/7c2dbb9c-4d9e-4edf-b9d9-82bb318bf7d0)
-![Image](https://github.com/user-attachments/assets/bbcf301d-754b-45a9-a809-fd2c1ce7e5c4)
+![Image](https://github.com/user-attachments/assets/370fbd33-e2d2-44e6-afb1-cb14456db1d6)
+
+
+![Image](https://github.com/user-attachments/assets/f362fb1c-7329-4316-af05-848f92ee6a1b)
+![Image](https://github.com/user-attachments/assets/2c34c81b-27bd-4021-b344-5ae14dd39fc9)
 ## Data Preparation
 1. Feature Selection
 **Proses:** Memilih 11 kolom penting dari dataset asli Google-Playstore.csv yang relevan untuk analisis dan sistem rekomendasi, antara lain App Name, App Id, Category, Rating, Rating Count, Installs, Free, Price, Size, dan Minimum Android.

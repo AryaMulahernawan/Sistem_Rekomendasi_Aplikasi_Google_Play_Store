@@ -50,13 +50,17 @@ Menampilkan aplikasi dengan jumlah instalasi, rating count, atau rating tertingg
 Pada tahap ini, dilakukan pemahaman awal terhadap dataset yang digunakan dalam proyek sistem rekomendasi aplikasi. Informasi yang disampaikan mencakup jumlah data, kondisi data, serta penjelasan setiap fitur dalam dataset.
 erdapat kolom-kolom yang memiliki missing values, antara lain:
 
-nama kolom     jumlah data
-App Name               5
-Rating             22883
-Rating Count       22883
-Installs             107
-Size                 196
-Minimum Android     2499
+App Name : 5
+
+Rating : 22883
+
+Rating Count : 22883
+
+Installs : 107
+
+Size : 196
+
+Minimum Android : 2499
 
 Data duplikat tidak ditemukan pada data
 

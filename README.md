@@ -145,37 +145,50 @@ c. Rating Count vs Price: -0.00 juga.
   
 ## Data Preparation
 1. Feature Selection
+   
 **Proses:** Memilih 11 kolom penting dari dataset asli Google-Playstore.csv yang relevan untuk analisis dan sistem rekomendasi, antara lain App Name, App Id, Category, Rating, Rating Count, Installs, Free, Price, Size, dan Minimum Android.
 
-Alasan: Kolom-kolom ini dipilih karena memiliki nilai informatif tinggi terhadap popularitas dan segmentasi aplikasi, serta tersedia secara konsisten dan mudah diolah untuk modeling.
+**Alasan:** Kolom-kolom ini dipilih karena memiliki nilai informatif tinggi terhadap popularitas dan segmentasi aplikasi, serta tersedia secara konsisten dan mudah diolah untuk modeling.
 
 2. Missing Value Handling
+
 **Proses:**
 - Menghapus baris dengan nilai 0 pada kolom Rating dan Rating Count, karena dianggap sebagai data tidak valid.
 - Menghapus baris yang memiliki nilai null pada kolom-kolom kunci seperti App Name, Rating, Rating Count, Size, dan Minimum Android.
+  
 **Alasan:** Data kosong atau nol pada kolom penting dapat menyebabkan bias atau kesalahan pada analisis dan model, sehingga perlu dihapus untuk meningkatkan kualitas data.
 
 3. Duplicate Handling
+   
 **Proses:** Mengecek jumlah data duplikat pada dataset dan di data tidak ditemukan data yang duplikat.
+
 **Alasan:** Mencegah model terpengaruh oleh entri ganda yang bisa menyebabkan informasi berulang.
 
-4. Outlier Handling (Winsorizing)
+5. Outlier Handling (Winsorizing)
+   
 **Proses:** Menggunakan teknik winsorizing pada kolom Rating dan Rating Count dengan menggantikan nilai ekstrem di luar batas IQR dengan nilai batas atas/bawah.
+
 **Alasan:** Mengurangi pengaruh outlier ekstrem yang dapat merusak distribusi data dan menyebabkan model bias.
 
-5. Data Visualization & Exploratory Analysis
+7. Data Visualization & Exploratory Analysis
+   
 **Proses:**
 Visualisasi boxplot untuk kolom numerik guna melihat sebaran dan outlier.
 Visualisasi histogram dan pairplot untuk melihat distribusi data.
 Matriks korelasi untuk mengetahui hubungan antar fitur numerik.
+
 **Alasan:** Untuk memahami pola data, mendeteksi potensi masalah, dan menyesuaikan strategi pemodelan.
 
-6. Sampling
+9. Sampling
+    
 **Proses:** Mengambil sampel acak sebanyak 10.000 baris dari dataset bersih.
+
 **Alasan:** Untuk mempercepat proses komputasi, terutama saat menghitung similarity matrix dan pelatihan model.
 
-7. Text Vectorization
+11. Text Vectorization
+    
 **Proses:** Menggunakan TF-IDF Vectorizer pada kolom Category untuk mengubah data teks menjadi representasi numerik.
+
 **Alasan:** Karena sistem rekomendasi ini berbasis content-based filtering, diperlukan representasi numerik dari kategori aplikasi agar kemiripan antar aplikasi dapat dihitung.
 
 ## Modeling

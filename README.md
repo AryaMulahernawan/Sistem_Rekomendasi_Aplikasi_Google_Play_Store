@@ -178,10 +178,6 @@ Matriks korelasi untuk mengetahui hubungan antar fitur numerik.
 **Proses:** Menggunakan TF-IDF Vectorizer pada kolom Category untuk mengubah data teks menjadi representasi numerik.
 **Alasan:** Karena sistem rekomendasi ini berbasis content-based filtering, diperlukan representasi numerik dari kategori aplikasi agar kemiripan antar aplikasi dapat dihitung.
 
-9. Cosine Similarity
-**Proses:**: Menghitung kemiripan antar aplikasi berdasarkan hasil vektorisasi TF-IDF.
-**Alasan:** Cosine similarity digunakan untuk mengukur seberapa mirip dua aplikasi berdasarkan kategori mereka, yang menjadi dasar sistem rekomendasi.
-
 ## Modeling
 Tahapan ini membahas pembangunan model sistem rekomendasi yang dirancang untuk membantu pengguna menemukan aplikasi yang relevan berdasarkan preferensi atau kesamaan konten.
 
